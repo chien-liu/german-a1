@@ -16,6 +16,34 @@
     }
 
   </style>
+
+  <style>
+    /* this style tag is for collapsible */
+    .collapsible {
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #555;
+    }
+
+    .content {
+      padding: 0 0px;
+      display: none;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+  </style>
 </head>
 
 <body onload="getGermanVerbData()">
@@ -30,10 +58,14 @@
         <h2>Test Youself</h2>
         <table id="perfekt_test"></table>
 
-        <h2>Answer</h2>
-        <table id="perfekt_answer"></table>
+        <script type="text/javascript" src="js/main.js"></script>
 
-        <script type="text/javascript" src="js/tables.js"></script>
+        <!-- Answer -->
+        <p style="margin-bottom:3cm;"></p>
+        <button type="button" class="collapsible">Show Answer</button>
+        <div class="content">
+          <table id="perfekt_answer"></table>
+        </div>
 
       </div>
     </div>
@@ -56,6 +88,26 @@
         project helpful :)</p>
     </div>
   </div>
+
+
+
+  <script>
+    // The script is for collapible
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
