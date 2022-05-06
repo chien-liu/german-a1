@@ -1,4 +1,4 @@
-function compare_answer(id, answer) {
+function compareAnswer(id, answer) {
     const input = document.getElementById(id);
 
     if (input.value == answer) {
