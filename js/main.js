@@ -88,7 +88,7 @@ function getGermanVerbData() {
     request.send();
 }
 
-function csvToArray(str, delimiter = ",", shuffle = true) {
+function csvToArray(str, delimiter = ",", shuffle = false) {
     // slice from start of text to the first \n index
     // use split to create an array from string by delimiter
     const headers = str.slice(0, str.indexOf("\n")).split(delimiter).map(function (str) {
@@ -97,8 +97,7 @@ function csvToArray(str, delimiter = ",", shuffle = true) {
 
     // slice from \n index + 1 to the end of the text
     // use split to create an array of each csv value row
-    const rows = str.slice(str.indexOf("\n") + 1).split("\n");
-
+    const rows = str.slice(str.indexOf("\n") + 1).split("\n").filter(String);
     // Map the rows
     // split values from each row into an array
     var arr = rows.map(function (row) {
@@ -123,7 +122,6 @@ function shuffleArray(array) {
 }
 
 function compareAnswer(id, answer) {
-    console.log(id)
     const input = document.getElementById(id);
 
     if (input.value == answer) {
