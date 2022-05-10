@@ -57,7 +57,7 @@ function createVerbTestTable(data) {
                 const input = document.createElement('input');
                 input.type = "text";
                 input.id = i.toString() + "_" + j.toString();
-                input.onblur = function(){compareAnswer(input.id, arr[i][j])};
+                input.onblur = function () { compareAnswer(input.id, arr[i][j]) };
                 td.appendChild(input);
             } else {
                 td.appendChild(document.createTextNode(arr[i][j]));
@@ -68,7 +68,7 @@ function createVerbTestTable(data) {
 
 };
 
-function getGermanVerbData() {
+function getGermanVerbData(shuffle = true) {
     const url =
         "https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/perfekt.csv";
     var request = new XMLHttpRequest();
@@ -78,7 +78,7 @@ function getGermanVerbData() {
         reader.readAsText(request.response);
         reader.onload = function (e) {
             const text = e.target.result;
-            const data = csvToArray(text);
+            const data = csvToArray(text, shuffle);
             createVerbTestTable(data);
             createVerbAnswerTable(data);
         };
@@ -88,7 +88,7 @@ function getGermanVerbData() {
     request.send();
 }
 
-function csvToArray(str, delimiter = ",", shuffle = false) {
+function csvToArray(str, shuffle, delimiter = ",") {
     // slice from start of text to the first \n index
     // use split to create an array from string by delimiter
     const headers = str.slice(0, str.indexOf("\n")).split(delimiter).map(function (str) {
