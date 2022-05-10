@@ -11,10 +11,10 @@ function createNullTable(id, nrow, ncol) {
     }
 }
 
-function createVerbAnswerTable(data) {
+function createVerbTable(data, id, blank_col = []) {
     const headers = data["headers"];
     const arr = data["arr"];
-    table = document.getElementById("perfekt_answer");
+    const table = document.getElementById(id);
 
     // print headers
     const tr = table.insertRow();
@@ -29,31 +29,7 @@ function createVerbAnswerTable(data) {
         const tr = table.insertRow();
         for (let j = 0; j < headers.length; j++) {
             const td = tr.insertCell();
-            td.appendChild(document.createTextNode(arr[i][j]));
-        }
-    }
-}
-
-function createVerbTestTable(data) {
-    const headers = data["headers"];
-    const arr = data["arr"];
-    table = document.getElementById("perfekt_test");
-
-    // print headers
-    const tr = table.insertRow();
-    for (let j = 0; j < headers.length; j++) {
-        const td = tr.insertCell();
-        td.appendChild(document.createTextNode(headers[j]));
-        td.style.fontWeight = "bold";
-    }
-
-    // print content rows
-    for (let i = 0; i < arr.length; i++) {
-        const tr = table.insertRow();
-        for (let j = 0; j < headers.length; j++) {
-            const td = tr.insertCell();
-
-            if (headers[j] == "perfekt") {
+            if (blank_col.includes(headers[j])) {
                 const input = document.createElement('input');
                 input.type = "text";
                 input.id = i.toString() + "_" + j.toString();
@@ -64,9 +40,7 @@ function createVerbTestTable(data) {
             }
         }
     }
-
-
-};
+}
 
 function getGermanVerbData(shuffle = true) {
     const url =
@@ -79,8 +53,8 @@ function getGermanVerbData(shuffle = true) {
         reader.onload = function (e) {
             const text = e.target.result;
             const data = csvToArray(text, shuffle);
-            createVerbTestTable(data);
-            createVerbAnswerTable(data);
+            createVerbTable(data, id = "perfekt_test", blank_col = ["perfekt"]);
+            createVerbTable(data, id = "perfekt_answer");
         };
     };
     request.open("GET", url, true);
