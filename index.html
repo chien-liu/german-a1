@@ -42,7 +42,12 @@
       overflow: hidden;
       background-color: #ffffff;
     }
+  </style>
 
+  <style>
+    #shuffle_chk{
+      margin-left: 10px;
+    }
   </style>
 </head>
 
@@ -60,6 +65,8 @@
           <span style="color:red; font-weight: bold;">Red</span> for wrong.
         </p>
         <p> Press <span style="font-weight: bold;">tab</span> to move to the next box.</p>
+        <input type="checkbox" id="shuffle_chk" onchange="getGermanVerbData(shuffle=this.checked)" checked><label>Shuffle
+          the order.</label>
         <table id="perfekt_test"></table>
 
         <script type="text/javascript" src="js/main.js"></script>

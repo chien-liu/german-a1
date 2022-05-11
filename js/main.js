@@ -15,7 +15,10 @@ function createVerbTable(data, id, blank_col = []) {
     const headers = data["headers"];
     const arr = data["arr"];
     const table = document.getElementById(id);
-
+    
+    // flush table
+    table.innerHTML="" ;
+    
     // print headers
     const tr = table.insertRow();
     for (let j = 0; j < headers.length; j++) {
