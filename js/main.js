@@ -35,6 +35,7 @@ function createVerbTable(data, id, blank_col = []) {
             if (blank_col.includes(headers[j])) {
                 const input = document.createElement('input');
                 input.type = "text";
+                input.size = 10;
                 input.id = i.toString() + "_" + j.toString();
                 input.onblur = function () { compareAnswer(input.id, arr[i][j]) };
                 td.appendChild(input);
@@ -56,7 +57,7 @@ function getGermanVerbData(shuffle = true) {
         reader.onload = function (e) {
             const text = e.target.result;
             const data = csvToArray(text, shuffle);
-            createVerbTable(data, id = "perfekt_test", blank_col = ["perfekt"]);
+            createVerbTable(data, id = "perfekt_test", blank_col = ["perfekt", "hat / ist"]);
             createVerbTable(data, id = "perfekt_answer");
         };
     };
