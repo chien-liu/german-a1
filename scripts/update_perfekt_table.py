@@ -4,20 +4,33 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from tqdm import tqdm
+from googletrans import Translator
 
 
 def update(filename: str):
     df_perfekt = pd.read_csv(filename)
-    df_perfekt = _update_perfekt(df_perfekt)
+    df_perfekt = update_perfekt(df_perfekt)
+    df_perfekt = update_english(df_perfekt)
     df_perfekt.to_csv(filename, index=False)
+    print(df_perfekt)
 
 
 def update_perfekt(df: pd.DataFrame):
     for i in tqdm(range(len(df.index))):
         en, ge, aux, per = df.iloc[i, :]
-        aux_, per_ = _fetch_online_dic(ge)
+        aux_, per_ = fetch_online_dic(ge)
         assert per == per_, "Wrong perfekt tense."
         df.iloc[i, 2] = aux_
+
+    return df
+
+
+def update_english(df: pd.DataFrame):
+    translator = Translator()
+    for i in tqdm(range(len(df.index))):
+        en, ge, aux, per = df.iloc[i, :]
+        en_ = fetch_online_translate(ge, translator)
+        df.iloc[i, 0] = en_
 
     return df
 
@@ -35,6 +48,10 @@ def fetch_online_dic(verb: str):
     li = lis[2].text.split(" ")
     auxiliary, perfekt = li[1], li[2]
     return auxiliary, perfekt
+
+
+def fetch_online_translate(verb: str, translator):
+    return translator.translate(verb, src="de", dest="en").text.lower()
 
 
 if __name__ == "__main__":
