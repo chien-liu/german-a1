@@ -12,7 +12,6 @@ def update(filename: str):
     df_perfekt = update_perfekt(df_perfekt)
     df_perfekt = update_english(df_perfekt)
     df_perfekt.to_csv(filename, index=False)
-    print(df_perfekt)
 
 
 def update_perfekt(df: pd.DataFrame):
