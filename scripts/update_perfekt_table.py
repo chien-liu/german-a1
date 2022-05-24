@@ -20,8 +20,9 @@ def update_perfekt(df: pd.DataFrame):
     for i in tqdm(range(len(df.index))):
         en, ge, aux, per = df.iloc[i, :]
         aux_, per_ = fetch_online_dic(ge)
-        assert per == per_, "Wrong perfekt tense."
+
         df.iloc[i, 2] = aux_
+        df.iloc[i, 3] = per_
 
     return df
 
