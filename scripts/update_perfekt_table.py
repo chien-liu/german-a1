@@ -9,6 +9,7 @@ from googletrans import Translator
 
 def update(filename: str):
     df_perfekt = pd.read_csv(filename)
+    df_perfekt = df_perfekt.sort_values("german")
     df_perfekt = update_perfekt(df_perfekt)
     df_perfekt = update_english(df_perfekt)
     df_perfekt.to_csv(filename, index=False)
