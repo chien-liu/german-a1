@@ -12,6 +12,7 @@ def update(filename: str):
     df_perfekt = df_perfekt.sort_values("german")
     df_perfekt = update_perfekt(df_perfekt)
     df_perfekt = update_english(df_perfekt)
+    df_perfekt.drop_duplicates(inplace=True)
     df_perfekt.to_csv(filename, index=False)
 
 
