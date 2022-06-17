@@ -66,6 +66,47 @@ function getGermanVerbData(shuffle = true) {
     request.send();
 }
 
+function getArticleData(shuffle = false) {
+    const url =
+        "https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/article.csv";
+    var request = new XMLHttpRequest();
+
+    request.onload = function () {
+        var reader = new FileReader();
+        reader.readAsText(request.response);
+        reader.onload = function (e) {
+            const text = e.target.result;
+            const data = csvToArray(text, shuffle);
+            createVerbTable(data, id = "article_test", blank_col = ["Nom", "Akk", "Dat"]);
+            createVerbTable(data, id = "article_answer");
+        };
+    };
+    request.open("GET", url, true);
+    request.responseType = "blob";
+    request.send();
+}
+
+
+function getPronomenData(shuffle = false) {
+    const url =
+        "https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/pronomen.csv";
+    var request = new XMLHttpRequest();
+
+    request.onload = function () {
+        var reader = new FileReader();
+        reader.readAsText(request.response);
+        reader.onload = function (e) {
+            const text = e.target.result;
+            const data = csvToArray(text, shuffle);
+            createVerbTable(data, id = "pronomen_test", blank_col = ["Akk", "Dat"]);
+            createVerbTable(data, id = "pronomen_answer");
+        };
+    };
+    request.open("GET", url, true);
+    request.responseType = "blob";
+    request.send();
+}
+
 function csvToArray(str, shuffle, delimiter = ",") {
     // slice from start of text to the first \n index
     // use split to create an array from string by delimiter

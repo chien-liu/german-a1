@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+  <title>German A1 Practice</title>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      margin: 12px 12px 12px 12px;
+      padding: 6px 12px 3px 12px;
+    }
+
+  </style>
+
+  <style>
+    /* this style tag is for collapsible */
+    .collapsible {
+      background-color: #777;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #555;
+    }
+
+    .content {
+      padding: 0 0px;
+      display: none;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+  </style>
+
+  <style>
+    #shuffle_chk {
+      margin-left: 10px;
+    }
+
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JMJFM3SVX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-8JMJFM3SVX');
+  </script>
+</head>
+
+<body onload="getArticleData(shuffle=false); getPronomenData(shuffle=false)">
+  <div id="container">
+    <div id="header">
+      <h1>German A1 Practice</h1>
+    </div>
+    <div id="wrapper">
+      <div id="content">
+        <h1>Nom.-Akk-Dat.</h1>
+
+        <h2>Test Youself</h2>
+        <p>Fill in article in nominativ, akkusativ, dativ. <span style="color:green; font-weight: bold;">Green</span>
+          for correct.
+          <span style="color:red; font-weight: bold;">Red</span> for wrong.
+        </p>
+        <p> Press <span style="font-weight: bold;">tab</span> to move to the next box.</p>
+        <p> Scroll to the bottom to see all the answers.</p>
+        <input type="checkbox" id="shuffle_chk" onchange="getArticleData(shuffle=this.checked)"><label>Shuffle
+          the order.</label>
+        <table id="article_test"></table>
+        
+        <table id="pronomen_test"></table>
+
+        <script type="text/javascript" src="js/main.js"></script>
+
+        <!-- Answer -->
+        <p style="margin-bottom:3cm;"></p>
+        <button type="button" class="collapsible">Click here to reveal Answer</button>
+        <div class="content">
+          <table id="article_answer"></table>
+          <table id="pronomen_answer"></table>
+        </div>
+
+      </div>
+    </div>
+    <div id="navigation">
+      <p></p>
+      <p><strong>Navigation Here</strong></p>
+      <ul>
+        <!-- <li><a href="http://www.free-css.com/">Free CSS Templates</a></li>
+        <li><a href="http://www.free-css.com/free-css-layouts.php">Free CSS Layouts</a></li> -->
+        <li>No other page yet...</li>
+      </ul>
+    </div>
+    <div id="extra">
+      <ul>
+        <p><strong>FYI</strong></p>
+        <p>The English translation comes from <a href="https://pypi.org/project/googletrans/">google translate</a>.</p>
+        <p>The Perfekt tense comes from <a href="https://conjugator.reverso.net/conjugation-german.html">Reverso
+            Conjugation</a></p>
+        <p>Contact me to add more verbs <a
+            hef="mailto:chien.liu@uni-rostock.de?subject = german-a1-Feedback">chien.liu@uni-rostock.de</a></p>
+        <p>Let's pass the German A1-2 together haha &#128512</p>
+      </ul>
+    </div>
+    <div id="footer">
+      <p>View source code <a href="https://github.com/chien-liu/german-a1">here</a>. Star the repo if you found this
+        project helpful :)</p>
+    </div>
+  </div>
+
+
+
+  <script>
+    // The script is for collapible
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
