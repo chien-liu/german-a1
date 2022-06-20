@@ -11,10 +11,10 @@ function createNullTable(id, nrow, ncol) {
     }
 }
 
-function createVerbTable(data, id, blank_col = []) {
+function createTable(data, table_id, blank_col = []) {
     const headers = data["headers"];
     const arr = data["arr"];
-    const table = document.getElementById(id);
+    const table = document.getElementById(table_id);
     
     // flush table
     table.innerHTML="" ;
@@ -36,7 +36,7 @@ function createVerbTable(data, id, blank_col = []) {
                 const input = document.createElement('input');
                 input.type = "text";
                 input.size = 10;
-                input.id = i.toString() + "_" + j.toString();
+                input.id = table_id + "_" + i.toString() + "_" + j.toString();
                 input.onblur = function () { compareAnswer(input.id, arr[i][j]) };
                 td.appendChild(input);
             } else {
@@ -57,8 +57,8 @@ function getGermanVerbData(shuffle = true) {
         reader.onload = function (e) {
             const text = e.target.result;
             const data = csvToArray(text, shuffle);
-            createVerbTable(data, id = "perfekt_test", blank_col = ["perfekt", "hat / ist"]);
-            createVerbTable(data, id = "perfekt_answer");
+            createTable(data, id = "perfekt_test", blank_col = ["perfekt", "hat / ist"]);
+            createTable(data, id = "perfekt_answer");
         };
     };
     request.open("GET", url, true);
@@ -77,8 +77,8 @@ function getArticleData(shuffle = false) {
         reader.onload = function (e) {
             const text = e.target.result;
             const data = csvToArray(text, shuffle);
-            createVerbTable(data, id = "article_test", blank_col = ["Nom", "Akk", "Dat"]);
-            createVerbTable(data, id = "article_answer");
+            createTable(data, id = "article_test", blank_col = ["Nom", "Akk", "Dat"]);
+            createTable(data, id = "article_answer");
         };
     };
     request.open("GET", url, true);
@@ -98,8 +98,8 @@ function getPronomenData(shuffle = false) {
         reader.onload = function (e) {
             const text = e.target.result;
             const data = csvToArray(text, shuffle);
-            createVerbTable(data, id = "pronomen_test", blank_col = ["Akk", "Dat"]);
-            createVerbTable(data, id = "pronomen_answer");
+            createTable(data, id = "pronomen_test", blank_col = ["Akk", "Dat"]);
+            createTable(data, id = "pronomen_answer");
         };
     };
     request.open("GET", url, true);
