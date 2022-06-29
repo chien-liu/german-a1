@@ -1,22 +1,26 @@
 english,german,hat / ist,perfekt
-pick up,abholen,hat,abgeholt
+collect,abholen,hat,abgeholt
 arrive,ankommen,ist,angekommen
-call,anrufen,hat,angerufen
+call up,anrufen,hat,angerufen
 work,arbeiten,hat,gearbeitet
 to clean up,aufräumen,hat,aufgeräumt
 stand up,aufstehen,ist,aufgestanden
-wake up,aufwachen,ist,aufgewacht
+awaken,aufwachen,ist,aufgewacht
+grow up,aufwachsen,ist,aufgewachsen
 get out,aussteigen,ist,ausgestiegen
 to bake,backen,hat,gebacken
-view,besichtigen,hat,besichtigt
+visit,besichtigen,hat,besichtigt
 to visit,besuchen,hat,besucht
+stay,bleiben,ist,geblieben
 think,denken,hat,gedacht
-shopping,einkaufen,hat,eingekauft
+shop,einkaufen,hat,eingekauft
 invite,einladen,hat,eingeladen
-fall asleep,einschlafen,ist,eingeschlafen
-eat,essen,hat,gegessen
-ride,fahren,ist,gefahren
+to fall asleep,einschlafen,ist,eingeschlafen
+get in,einsteigen,ist,eingestiegen
+meal,essen,hat,gegessen
+drive,fahren,ist,gefahren
 fall,fallen,ist,gefallen
+to celebrate,feiern,hat,gefeiert
 watch tv,fernsehen,hat,ferngesehen
 to fly,fliegen,ist,geflogen
 taking photos,fotografieren,hat,fotografiert
@@ -24,37 +28,42 @@ have breakfast,frühstücken,hat,gefrühstückt
 give birth,gebären,hat,geboren
 walk,gehen,ist,gegangen
 to have,haben,hat,gehabt
+to fetch,holen,hat,geholt
 listen,hören,hat,gehört
 to jog,joggen,hat,gejoggt
+to buy,kaufen,hat,gekauft
 climb,klettern,ist,geklettert
 cook,kochen,hat,gekocht
 come,kommen,ist,gekommen
 laugh,lachen,hat,gelacht
+load,laden,hat,geladen
+land,landen,ist,gelandet
 to run,laufen,ist,gelaufen
+life,leben,hat,gelebt
 to learn,lernen,hat,gelernt
 read,lesen,hat,gelesen
 love,lieben,hat,geliebt
-do,machen,hat,gemacht
-say,meinen,hat,gemeint
+make,machen,hat,gemacht
+think,meinen,hat,gemeint
 talk,reden,hat,geredet
 to travel,reisen,ist,gereist
 to say,sagen,hat,gesagt
 sleep,schlafen,hat,geschlafen
-to write,schreiben,hat,geschrieben
+write,schreiben,hat,geschrieben
 swim,schwimmen,ist,geschwommen
 be,sein,ist,gewesen
 to sing,singen,hat,gesungen
 to play,spielen,hat,gespielt
-to speak,sprechen,hat,gesprochen
+speak,sprechen,hat,gesprochen
 jump,springen,ist,gesprungen
-to die,sterben,ist,gestorben
+die,sterben,ist,gestorben
 surfing,surfen,hat,gesurft
 dance,tanzen,hat,getanzt
 make a phone call,telefonieren,hat,telefoniert
-meet,treffen,hat,getroffen
+meeting,treffen,hat,getroffen
 drink,trinken,hat,getrunken
 hike,wandern,ist,gewandert
 will,werden,ist,geworden
 reside,wohnen,hat,gewohnt
 to return,zurückkehren,ist,zurückgekehrt
-to practice,üben,hat,geübt
+practice,üben,hat,geübt
