@@ -1,24 +1,88 @@
-function createNullTable(id, nrow, ncol) {
-    // prototype function
-    table = document.getElementById(id);
-
-    for (let i = 0; i < nrow; i++) {
-        const tr = table.insertRow();
-        for (let j = 0; j < ncol; j++) {
-            const td = tr.insertCell();
-            td.appendChild(document.createTextNode(`Cell I${i}/J${j}`));
-        }
+function loadPerfektData(shuffle) {
+    /* Entry Point */
+    const name = "perfekt";
+    if (sessionStorage.getItem(name) === null) {
+        fetchFromGithub(name, callback = updatePerfektTable, shuffle);
+    } else {
+        updatePerfektTable(shuffle);
     }
+}
+
+function loadArticleData(shuffle) {
+    /* Entry Point */
+    const name = "article";
+    if (sessionStorage.getItem(name) === null) {
+        fetchFromGithub(name, callback = updateArticleTable, shuffle);
+    } else {
+        updateArticleTable(shuffle);
+    }
+}
+
+function loadPronomenData(shuffle) {
+    /* Entry Point */
+    const name = "pronomen";
+    if (sessionStorage.getItem(name) === null) {
+        fetchFromGithub(name, callback = updatePronomenTable, shuffle);
+    } else {
+        updatePronomenTable(shuffle);
+    }
+}
+
+function fetchFromGithub(name, callback, ...args) {
+    console.log("fetchFromGithub");
+    const url = `https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/${name}.csv`;
+    var request = new XMLHttpRequest();
+
+    request.onload = function () {
+        var reader = new FileReader();
+        reader.readAsText(request.response);
+        reader.onload = function (e) {
+            const text = e.target.result;
+            const data = csvToArray(text);
+            sessionStorage.setItem(name, JSON.stringify(data));
+            callback(...args);
+        };
+    };
+    request.open("GET", url, true);
+    request.responseType = "blob";
+    request.send();
+}
+
+function updatePerfektTable(shuffle) {
+    var data = JSON.parse(sessionStorage.getItem("perfekt"));
+    if (shuffle) {
+        shuffleArray(data["arr"]);
+    }
+    createTable(data, id = "perfekt_test", blank_col = ["perfekt", "hat / ist"]);
+    createTable(data, id = "perfekt_answer");
+}
+
+function updateArticleTable(shuffle) {
+    var data = JSON.parse(sessionStorage.getItem("article"));
+    if (shuffle) {
+        shuffleArray(data["arr"]);
+    }
+    createTable(data, id = "article_test", blank_col = ["Nom", "Akk", "Dat"]);
+    createTable(data, id = "article_answer");
+}
+
+function updatePronomenTable(shuffle) {
+    var data = JSON.parse(sessionStorage.getItem("pronomen"));
+    if (shuffle) {
+        shuffleArray(data["arr"]);
+    }
+    createTable(data, id = "pronomen_test", blank_col = ["Akk", "Dat"]);
+    createTable(data, id = "pronomen_answer");
 }
 
 function createTable(data, table_id, blank_col = []) {
     const headers = data["headers"];
     const arr = data["arr"];
     const table = document.getElementById(table_id);
-    
+
     // flush table
-    table.innerHTML="" ;
-    
+    table.innerHTML = "";
+
     // print headers
     const tr = table.insertRow();
     for (let j = 0; j < headers.length; j++) {
@@ -46,68 +110,7 @@ function createTable(data, table_id, blank_col = []) {
     }
 }
 
-function getGermanVerbData(shuffle = true) {
-    const url =
-        "https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/perfekt.csv";
-    var request = new XMLHttpRequest();
-
-    request.onload = function () {
-        var reader = new FileReader();
-        reader.readAsText(request.response);
-        reader.onload = function (e) {
-            const text = e.target.result;
-            const data = csvToArray(text, shuffle);
-            createTable(data, id = "perfekt_test", blank_col = ["perfekt", "hat / ist"]);
-            createTable(data, id = "perfekt_answer");
-        };
-    };
-    request.open("GET", url, true);
-    request.responseType = "blob";
-    request.send();
-}
-
-function getArticleData(shuffle = false) {
-    const url =
-        "https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/article.csv";
-    var request = new XMLHttpRequest();
-
-    request.onload = function () {
-        var reader = new FileReader();
-        reader.readAsText(request.response);
-        reader.onload = function (e) {
-            const text = e.target.result;
-            const data = csvToArray(text, shuffle);
-            createTable(data, id = "article_test", blank_col = ["Nom", "Akk", "Dat"]);
-            createTable(data, id = "article_answer");
-        };
-    };
-    request.open("GET", url, true);
-    request.responseType = "blob";
-    request.send();
-}
-
-
-function getPronomenData(shuffle = false) {
-    const url =
-        "https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/pronomen.csv";
-    var request = new XMLHttpRequest();
-
-    request.onload = function () {
-        var reader = new FileReader();
-        reader.readAsText(request.response);
-        reader.onload = function (e) {
-            const text = e.target.result;
-            const data = csvToArray(text, shuffle);
-            createTable(data, id = "pronomen_test", blank_col = ["Akk", "Dat"]);
-            createTable(data, id = "pronomen_answer");
-        };
-    };
-    request.open("GET", url, true);
-    request.responseType = "blob";
-    request.send();
-}
-
-function csvToArray(str, shuffle, delimiter = ",") {
+function csvToArray(str, delimiter = ",") {
     // slice from start of text to the first \n index
     // use split to create an array from string by delimiter
     const headers = str.slice(0, str.indexOf("\n")).split(delimiter).map(function (str) {
@@ -127,17 +130,12 @@ function csvToArray(str, shuffle, delimiter = ",") {
         return elTrim;
     });
 
-
-
-    if (shuffle) {
-        shuffleArray(arr);
-    }
     // return headers and array
     return { headers, arr };
 }
 
-function shuffleArray(array) {
-    array.sort(() => Math.random() - 0.5);
+function shuffleArray(arr) {
+    arr.sort(() => Math.random() - 0.5);
 }
 
 function compareAnswer(id, answer) {

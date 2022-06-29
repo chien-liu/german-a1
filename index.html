@@ -63,7 +63,7 @@
   </script>
 </head>
 
-<body onload="getGermanVerbData(shuffle=true)">
+<body onload="loadPerfektData(shuffle=true)">
   <div id="container">
     <div id="header">
       <h1>German A1 Practice</h1>
@@ -78,8 +78,7 @@
         </p>
         <p> Press <span style="font-weight: bold;">tab</span> to move to the next box.</p>
         <p> Scroll to the bottom to see all the answers.</p>
-        <input type="checkbox" id="shuffle_chk" onchange="getGermanVerbData(shuffle=this.checked)"
-          checked><label>Shuffle
+        <input type="checkbox" id="shuffle_chk" onchange="loadPerfektData(shuffle=this.checked)" checked><label>Shuffle
           the order.</label>
         <table id="perfekt_test"></table>
 
@@ -110,7 +109,8 @@
         <p>The English translation comes from <a href="https://pypi.org/project/googletrans/">google translate</a>.</p>
         <p>The Perfekt tense comes from <a href="https://conjugator.reverso.net/conjugation-german.html">Reverso
             Conjugation</a></p>
-        <p>Contact me to add more verbs <a hef="mailto:chien.liu@uni-rostock.de?subject = german-a1-Feedback">chien.liu@uni-rostock.de</a></p>
+        <p>Contact me to add more verbs <a
+            hef="mailto:chien.liu@uni-rostock.de?subject = german-a1-Feedback">chien.liu@uni-rostock.de</a></p>
         <p>Let's pass the German A1-2 together haha &#128512</p>
       </ul>
     </div>
