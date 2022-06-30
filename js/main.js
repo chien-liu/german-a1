@@ -78,6 +78,7 @@ function updatePronomenTable(shuffle) {
 function createTable(data, table_id, blank_col = []) {
     const headers = data["headers"];
     const arr = data["arr"];
+    console.log(arr)
     const table = document.getElementById(table_id);
 
     // flush table
@@ -147,4 +148,17 @@ function compareAnswer(id, answer) {
         input.style.color = "red";
     }
     input.style.fontWeight = "bold";
+}
+
+function saveCorretCount(dictName, key) {
+    dic = JSON.parse(localStorage.getItem(dictName));
+    if (dic === null) {
+        var dic = {};
+    }
+    if (dic[key] === null) {
+        dic[key] = 1;
+    } else {
+        dic[key] = dic[key] + 1;
+    }
+    localStorage.setItem(dictName, JSON.stringify(dic));
 }
