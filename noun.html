@@ -63,24 +63,24 @@
   </script>
 </head>
 
-<body onload="loadPerfektData(shuffle=true)">
+<body onload="loadNounData(shuffle=true)">
   <div id="container">
     <div id="header">
       <h1>German A1 Practice</h1>
     </div>
     <div id="wrapper">
       <div id="content">
-        <h1>Perfekt</h1>
+        <h1>Noun</h1>
 
         <h2>Test Youself</h2>
-        <p>Fill in perfekt tense. <span style="color:green; font-weight: bold;">Green</span> for correct.
+        <p>Fill in articles and plural forms. <span style="color:green; font-weight: bold;">Green</span> for correct.
           <span style="color:red; font-weight: bold;">Red</span> for wrong.
         </p>
         <p> Press <span style="font-weight: bold;">tab</span> to move to the next box.</p>
         <p> Scroll to the bottom to see all the answers.</p>
-        <input type="checkbox" id="shuffle_chk" onchange="loadPerfektData(shuffle=this.checked)" checked><label>Shuffle
+        <input type="checkbox" id="shuffle_chk" onchange="loadNounData(shuffle=this.checked)" checked><label>Shuffle
           the order.</label>
-        <table id="perfekt_test"></table>
+        <table id="noun_test"></table>
 
         <script type="text/javascript" src="js/main.js"></script>
 
@@ -88,7 +88,7 @@
         <p style="margin-bottom:3cm;"></p>
         <button type="button" class="collapsible">Click here to reveal Answer</button>
         <div class="content">
-          <table id="perfekt_answer"></table>
+          <table id="noun_answer"></table>
         </div>
 
       </div>
@@ -100,7 +100,6 @@
         <ul>
           <li><a href="https://chien-liu.github.io/german-a1/index.html">Verbs</a></li>
           <li><a href="https://chien-liu.github.io/german-a1/nom-akk-dat.html">Nom-Akk-Dat</a></li>
-          <li><a href="https://chien-liu.github.io/german-a1/noun.html">Nouns</a></li>
         </ul>
       </div>
     </div>

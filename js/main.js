@@ -28,6 +28,16 @@ function loadPronomenData(shuffle) {
     }
 }
 
+function loadNounData(shuffle) {
+    /* Entry Point */
+    const name = "noun";
+    if (sessionStorage.getItem(name) === null) {
+        fetchFromGithub(name, callback = updateNounTable, shuffle);
+    } else {
+        updateNounTable(shuffle);
+    }
+}
+
 function fetchFromGithub(name, callback, ...args) {
     console.log("fetchFromGithub");
     const url = `https://raw.githubusercontent.com/chien-liu/german-a1/main/tables/${name}.csv`;
@@ -73,6 +83,15 @@ function updatePronomenTable(shuffle) {
     }
     createTable(data, id = "pronomen_test", blank_col = ["Akk", "Dat"]);
     createTable(data, id = "pronomen_answer");
+}
+
+function updateNounTable(shuffle) {
+    var data = JSON.parse(sessionStorage.getItem("noun"));
+    if (shuffle) {
+        shuffleArray(data["arr"]);
+    }
+    createTable(data, id = "noun_test", blank_col = ["article", "plural"]);
+    createTable(data, id = "noun_answer");
 }
 
 function createTable(data, table_id, blank_col = []) {
