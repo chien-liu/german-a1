@@ -10,8 +10,10 @@ august,der,August,x
 bathrobe,der,Bademantel,Bademäntel
 balcony,der,Balkon,Balkons
 belly,der,Bauch,Bäuche
+tree,der,Baum,Bäume
 leg,das,Bein,Beine
 library,die,Bibliothek,Bibliotheken
+flower,die,Blume,Blumen
 breast,die,Brust,Brüste
 december,der,Dezember,x
 doctor,der,Doktor,Doktoren
@@ -25,11 +27,14 @@ finger,der,Finger,Finger
 spring,der,Frühling,Frühlinge
 foot,der,Fuß,Füße
 hairdryer,der,Föhn,Föhne
+garage,die,Garage,Garagen
+garden,der,Garten,Gärten
 guest,der,Gast,Gäste
 business,das,Geschäft,Geschäfte
 throat,der,Hals,Hälse
 hand,die,Hand,Hände
 hand towel,das,Handtuch,Handtücher
+a house,das,Haus,Häuser
 heating,die,Heizung,Heizungen
 autumn,der,Herbst,Herbste
 cough,der,Husten,Husten
@@ -73,6 +78,7 @@ playground,der,Spielplatz,Spielplätze
 floor,der,Stock,Stöcke
 tablet,die,Tablette,Tabletten
 phone,das,Telefon,Telefone
+stairs,die,Treppe,Treppen
 tower,der,Turm,Türme
 water,das,Wasser,Wasser
 alarm clock,der,Wecker,Wecker
