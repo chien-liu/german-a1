@@ -1,9 +1,9 @@
-english,article,german,plural
+sneezing,article,german,plural
 old town,die,Altstadt,Altstädte
 pharmacy,die,Apotheke,Apotheken
 april,der,April,x
-poor,der,Arm,Arme
-physician,der,Arzt,Ärzte
+arm,der,Arm,Arme
+doctor,der,Arzt,Ärzte
 elevator,der,Aufzug,Aufzüge
 eye,das,Auge,Augen
 august,der,August,x
@@ -43,10 +43,10 @@ january,der,Januar,x
 youth hostel,die,Jugendherberge,Jugendherbergen
 july,der,Juli,x
 june,der,Juni,x
-"basement, cellar",der,Keller,Keller
+basement,der,Keller,Keller
 kindergarten,der,Kindergarten,Kindergärten
 church,die,Kirche,Kirchen
-air conditioning,die,Klimaanlage,Klimaanlagen
+air conditioner,die,Klimaanlage,Klimaanlagen
 knee,das,Knie,Knie
 head,der,Kopf,Köpfe
 load,der,Laden,Läden
@@ -69,7 +69,7 @@ the back,der,Rücken,Rücken
 ointment,die,Salbe,Salben
 lock,das,Schloss,Schlösser
 pain,der,Schmerz,Schmerzen
-sniffles,der,Schnupfen,Schnupfen
+sneezing,der,Schnupfen,Schnupfen
 school,die,Schule,Schulen
 soap,die,Seife,Seifen
 september,der,September,x
