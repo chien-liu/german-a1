@@ -90,7 +90,7 @@ function updateNounTable(shuffle) {
     if (shuffle) {
         shuffleArray(data["arr"]);
     }
-    createTable(data, id = "noun_test", blank_col = ["article", "plural"]);
+    createTable(data, id = "noun_test", blank_col = ["article", "german", "plural"]);
     createTable(data, id = "noun_answer");
 }
 
