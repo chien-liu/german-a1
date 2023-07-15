@@ -5,11 +5,10 @@ from bs4 import BeautifulSoup
 
 
 def read_nouns_txt(path):
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         lines = f.readlines()
-        nouns = [l.strip() for l in lines]
-        # df = pd.DataFrame({"articles":[], "english":nouns, "plural":[]})
-        return nouns
+        words = [l.strip() for l in lines]
+        return words
 
 
 def get_article(noun):
