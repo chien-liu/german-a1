@@ -4,14 +4,13 @@ import requests
 from bs4 import BeautifulSoup
 
 
-
 def read_nouns_txt(path):
     with open(path, "r") as f:
         lines = f.readlines()
         nouns = [l.strip() for l in lines]
         # df = pd.DataFrame({"articles":[], "english":nouns, "plural":[]})
         return nouns
-        
+
 
 def get_article(noun):
     url = "https://www.verbformen.com/declension/nouns/{}.htm".format(noun)
@@ -36,7 +35,8 @@ def get_plural(noun):
         page = requests.get(url)
         html = page.content.decode("utf-8")
         soup = BeautifulSoup(html, features="html.parser")
-        tr = soup.find("div", {"class": "vTbl", "style": "z-index: 7;"}).find("tr")
+        tr = soup.find(
+            "div", {"class": "vTbl", "style": "z-index: 7;"}).find("tr")
         tds = tr.find_all("td")
         plural = tds[1].text
     except:
@@ -44,13 +44,12 @@ def get_plural(noun):
     print(plural)
     return plural
 
-    
 
 if __name__ == "__main__":
     nouns = read_nouns_txt("nouns.txt")
-    
+
     plurals = [get_plural(n) for n in nouns]
     articles = [get_article(n) for n in nouns]
-    
+
     df = pd.DataFrame({"article": articles, "noun": nouns, "plural": plurals})
     df.to_csv("nouns.csv", index=False)
